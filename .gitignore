@@ -1,0 +1,14 @@
+/build
+/api-tests/target
+/api-tests/api-tests/target
+/api-tests/allure-results
+/api-tests/applogs
+api-tests/allure
+/ui-tests/target
+/ui-tests/allure-results
+/ui-tests/src/main/resources/webdrivers
+.allure
+/.settings
+.idea
+applogs
+target

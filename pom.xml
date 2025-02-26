@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>ru.performancelab</groupId>
+    <artifactId>main-module</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <name>Multi module project with tests for UI and API</name>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>api-tests</module>
+        <module>ui-tests</module>
+        <module>jdbc-example</module>
+    </modules>
+
+    <properties>
+        <allure.maven.version>2.12.0</allure.maven.version>
+        <allure.version>2.26.0</allure.version>
+        <aspectj.version>1.9.22</aspectj.version>
+        <junit.jupiter.api.version>5.11.2</junit.jupiter.api.version>
+        <junit5.version>5.10.2</junit5.version>
+        <log4j.version>2.3.2</log4j.version>
+        <maven.compiler.plugin.version>3.13.0</maven.compiler.plugin.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
+        <maven.surefire.plugin.version>3.2.5</maven.surefire.plugin.version>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <rerunner-jupiter.version>2.1.6</rerunner-jupiter.version>
+        <rest-assured.version>5.5.0</rest-assured.version>
+        <selenium.version>4.26.0</selenium.version>
+        <slf4j.version>1.6.1</slf4j.version>
+        <h2.version>2.3.232</h2.version>
+    </properties>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- For whole project -->
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-engine</artifactId>
+                <version>${junit5.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-bom</artifactId>
+                <version>${allure.version}</version>
+                <type>pom</type>
+            </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-junit5</artifactId>
+                <version>${allure.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-api</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.apache.logging.log4j</groupId>
+                <artifactId>log4j-core</artifactId>
+                <version>${log4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-api</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.slf4j</groupId>
+                <artifactId>slf4j-simple</artifactId>
+                <version>${slf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.github.artsok</groupId>
+                <artifactId>rerunner-jupiter</artifactId>
+                <version>${rerunner-jupiter.version}</version>
+            </dependency>
+
+            <!-- API Tests -->
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>rest-assured</artifactId>
+                <version>${rest-assured.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.junit.jupiter</groupId>
+                <artifactId>junit-jupiter-api</artifactId>
+                <version>${junit5.version}</version>
+                <scope>test</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.rest-assured</groupId>
+                <artifactId>json-schema-validator</artifactId>
+                <version>${rest-assured.version}</version>
+            </dependency>
+
+            <!-- UI Tests -->
+            <dependency>
+                <groupId>org.seleniumhq.selenium</groupId>
+                <artifactId>selenium-java</artifactId>
+                <version>${selenium.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-java-commons</artifactId>
+                <version>${allure.version}</version>
+            </dependency>
+
+            <!-- JDBC -->
+            <dependency>
+                <groupId>com.h2database</groupId>
+                <artifactId>h2</artifactId>
+                <version>${h2.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-bom</artifactId>
+            <type>pom</type>
+        </dependency>
+
+        <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit5</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>io.github.artsok</groupId>
+            <artifactId>rerunner-jupiter</artifactId>
+        </dependency>
+
+        <!-- JDBC -->
+        <dependency>
+            <groupId>com.h2database</groupId>
+            <artifactId>h2</artifactId>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
+                <configuration>
+                    <testFailureIgnore>false</testFailureIgnore>
+                    <argLine>
+                        -Dfile.encoding=${project.build.sourceEncoding}
+                        -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+                    </argLine>
+                    <systemProperties>
+                        <property>
+                            <name>junit.jupiter.extensions.autodetection.enabled</name>
+                            <value>true</value>
+                        </property>
+                        <property>
+                            <name>allure.results.directory</name>
+                            <value>${project.build.directory}/allure-results</value>
+                        </property>
+                    </systemProperties>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.aspectj</groupId>
+                        <artifactId>aspectjweaver</artifactId>
+                        <version>${aspectj.version}</version>
+                    </dependency>
+                </dependencies>
+            </plugin>
+
+            <plugin>
+                <groupId>io.qameta.allure</groupId>
+                <artifactId>allure-maven</artifactId>
+                <version>${allure.maven.version}</version>
+                <configuration>
+                    <reportVersion>${allure.version}</reportVersion>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven.compiler.plugin.version}</version>
+                <configuration>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                    <release>21</release>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>
