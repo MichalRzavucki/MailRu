@@ -1,12 +1,12 @@
 package util;
 
+import enums.Browsers;
+import exceptions.IncorrectBrowserNameException;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
-import enums.Browsers;
-import exceptions.IncorrectBrowserNameException;
 
 import static enums.Browsers.CHROME;
 

@@ -1,5 +1,6 @@
 package pages.authorization;
 
+import constants.WaitTimes;
 import io.qameta.allure.Allure;
 import io.qameta.allure.Step;
 import org.apache.logging.log4j.LogManager;
@@ -7,7 +8,6 @@ import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.TimeoutException;
-import constants.WaitTimes;
 import pages.PageBase;
 
 import java.time.Duration;
@@ -59,7 +59,7 @@ public class EnterPasswordPage extends PageBase {
             getDriver().findElement(getPasswordField()).sendKeys(data);
         });
 
-        LOGGER.info(String.format("Введён пароль '%s', data"));
+        LOGGER.info("Введён пароль {}", data);
         return this;
     }
 

@@ -79,7 +79,7 @@ public class LoginModal extends PageBase {
             return this;
         }
 
-        LOGGER.info("Модальное окно Авторизации не появилось");
+        LOGGER.error("Модальное окно Авторизации не появилось");
         throw new NoSuchElementException(REASON);
     }
 
