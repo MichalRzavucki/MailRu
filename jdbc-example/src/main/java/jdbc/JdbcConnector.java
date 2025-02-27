@@ -1,8 +1,9 @@
-package service;
+package jdbc;
 
-import domain.Employee;
+import jdbc.domain.Employee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import jdbc.service.EmployeeService;
 
 public class JdbcConnector {
     private static final Logger LOGGER = LogManager.getLogger(JdbcConnector.class);

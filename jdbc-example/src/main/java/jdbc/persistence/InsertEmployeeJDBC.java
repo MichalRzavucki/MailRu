@@ -1,9 +1,9 @@
-package persistence;
+package jdbc.persistence;
 
-import domain.Employee;
+import jdbc.domain.Employee;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import service.ConnectionInitializer;
+import jdbc.service.ConnectionInitializer;
 
 import javax.sql.DataSource;
 import java.sql.PreparedStatement;

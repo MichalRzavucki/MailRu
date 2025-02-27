@@ -1,4 +1,4 @@
-package service;
+package jdbc.service;
 
 import com.zaxxer.hikari.HikariDataSource;
 

@@ -1,4 +1,4 @@
-package domain;
+package jdbc.domain;
 
 public class Employee {
     private int employeeId;

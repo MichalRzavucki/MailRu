@@ -1,9 +1,9 @@
-package service;
+package jdbc.service;
 
-import domain.Employee;
+import jdbc.domain.Employee;
+import jdbc.persistence.*;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import persistence.*;
 
 /**
  * Класс, отвечающий за сервисные функции для SelectAllEmployeesService
