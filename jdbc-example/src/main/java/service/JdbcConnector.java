@@ -1,27 +1,31 @@
 package service;
 
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import domain.Employee;
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 
 public class JdbcConnector {
+    private static final Logger LOGGER = LogManager.getLogger(JdbcConnector.class);
+
     public static void main(String[] args) {
-        var initializeScript = ";INIT=RUNSCRIPT FROM 'jdbc-example/src/main/resources/queries.sql';";
-        var url = "jdbc:h2:mem:" + initializeScript;
-        try (var connection = DriverManager.getConnection(url);) {
-            System.out.println("connection.isValid(0) = " + connection.isValid(0));
+        // Выбор всех сотрудников из БД
+        LOGGER.info("Выбор всех сотрудников из БД:");
+        new EmployeeService().getAllEmployees();
 
-            // SELECTS
-            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Employees");
+        // Выбор одного сотрудника из БД по ID
+        LOGGER.info("Выбор одного сотрудника из БД по ID:");
+        new EmployeeService().getEmployeeById(1);
 
-            ResultSet resultSet = preparedStatement.executeQuery();
-            while (resultSet.next()) {
-                System.out.println(resultSet.getInt("employee_id") + " - " + resultSet.getString("first_name"));
-            }
+        // Добавление нового сотрудника в БД
+        LOGGER.info("Добавление нового сотрудника в БД:");
+        new EmployeeService().addNewEmployee(new Employee("Sarah", "Johnson", "Engineer", 65000.00));
 
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
+        // Обновление информации о сотруднике в БД по ID
+        LOGGER.info("Обновление информации о сотруднике в БД по ID:");
+        new EmployeeService().updateEmployeeById(new Employee(1, "Senior Manager", 55000.00));
+
+        // Удаление сотрудника из БД по ID
+        LOGGER.info("Удаление сотрудника из БД по ID:");
+        new EmployeeService().deleteEmployeeById(new Employee(1));
     }
 }

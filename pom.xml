@@ -34,6 +34,7 @@
         <selenium.version>4.26.0</selenium.version>
         <slf4j.version>1.6.1</slf4j.version>
         <h2.version>2.3.232</h2.version>
+        <hikaricp.version>6.2.1</hikaricp.version>
     </properties>
 
     <dependencyManagement>
@@ -117,6 +118,11 @@
                 <artifactId>h2</artifactId>
                 <version>${h2.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.zaxxer</groupId>
+                <artifactId>HikariCP</artifactId>
+                <version>${hikaricp.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 
@@ -155,12 +161,6 @@
         <dependency>
             <groupId>io.github.artsok</groupId>
             <artifactId>rerunner-jupiter</artifactId>
-        </dependency>
-
-        <!-- JDBC -->
-        <dependency>
-            <groupId>com.h2database</groupId>
-            <artifactId>h2</artifactId>
         </dependency>
     </dependencies>
 
